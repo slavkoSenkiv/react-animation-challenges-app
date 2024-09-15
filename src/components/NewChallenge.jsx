@@ -47,7 +47,7 @@ export default function NewChallenge({ onDone }) {
   }
 
   return (
-    <Modal title="New Challenge" onClose={onDone} >
+    <Modal title="New Challenge" onClose={onDone}>
       <form id="new-challenge" onSubmit={handleSubmit} ref={scope}>
         <p>
           <label htmlFor="title">Title</label>
@@ -78,9 +78,13 @@ export default function NewChallenge({ onDone }) {
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
-                visible: { opacity: 1, scale: [0.1, 10, 1] },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { type: 'spring' }, // Add the transition here
+                },
               }}
-              exit={{ opacity: 1, scale: 1 }}
+              //exit={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring' }}
               key={image.alt}
               onClick={() => handleSelectImage(image)}
